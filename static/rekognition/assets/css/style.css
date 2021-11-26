@@ -1,0 +1,462 @@
+/* #233239fc */
+
+@font-face {
+    font-family: 'Avenir-Book';
+    src: url(fonts/AvenirLTStd-Book.otf) format("opentype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Avenir-Black';
+    src: url(fonts/AvenirLTStd-Black.otf) format("opentype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Avenir-Roman';
+    src: url(fonts/AvenirLTStd-Roman.otf) format("opentype");
+    font-display: swap;
+}
+
+.form-control.login_input_field {
+    border-top-right-radius: .25rem !important;
+    border-bottom-right-radius: .25rem !important;
+}
+
+.slider-img {
+    width: 100%;
+    height: 100vh;
+}
+
+.slider_box {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+.mglr-0 {
+    margin: 0px 0px;
+    padding: 0px 0px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to right bottom, rgba(242, 134, 18, 0.94), rgba(229, 89, 46, 0.89), rgba(223, 64, 61, 0.753), #1406068e);
+}
+
+.login_form_section {
+    background: #1a262b;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.form__container {
+    text-align: center;
+    padding-top: 6%;
+}
+
+.form_heading {
+    color: #FF7B27;
+    font-family: "Avenir-Book";
+    font-weight: 400;
+    font-size: 40px;
+}
+
+.form_desc {
+    font-family: "Avenir-Roman";
+    font-size: 22px;
+    color: #A0A0A0;
+}
+
+.facebook_login_btn {
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    box-shadow: none;
+    outline: none;
+    border: none;
+    background: #3B5998;
+    padding: 0px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    overflow: hidden;
+    width: 100%;
+    margin-top: 15px;
+    transition: all .2s;
+    -webkit-transition: all .2s;
+    -moz-transition: all .2s;
+    -ms-transition: all .2s;
+    -o-transition: all .2s;
+}
+
+.facebook_login_btn:hover {
+    background-color: #263C68;
+}
+
+.facebook_login_btn i {
+    background-color: #263C68;
+    padding: 17px 16px;
+    color: #fff;
+    float: left;
+}
+
+.facebook_login_btn i.facebook__padding {
+    padding: 17px 18px;
+}
+
+.facebook_login_btn i.google_icon {
+    background-color: #BC2714;
+    transition: all .2s;
+    -webkit-transition: all .2s;
+    -moz-transition: all .2s;
+    -ms-transition: all .2s;
+    -o-transition: all .2s;
+}
+
+.facebook_login_btn.google_social {
+    background-color: #DD4B39;
+}
+
+.facebook_login_btn.google_social:hover {
+    background-color: #BC2714;
+}
+
+
+/* #929699 */
+
+.facebook_login_btn span {
+    padding: 13px 0px;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: "Roboto";
+    font-size: 16px;
+    display: block;
+    font-weight: bold;
+}
+
+.login_options {
+    width: 100%;
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 5% 3%;
+    background: #233239fc;
+    border-radius: 5px;
+    border: 1px solid #838383;
+}
+
+.for_or {
+    position: relative;
+    padding: 6px 20px;
+    margin: 15px auto;
+    color: #929699;
+    font-size: 17px;
+    font-weight: 500;
+    font-family: "Roboto";
+}
+
+.for_or::before {
+    content: "";
+    position: absolute;
+    width: 45%;
+    left: 0;
+    top: 54%;
+    margin-left: -20px;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    height: 2px;
+    background-color: #929699;
+}
+
+.for_or::after {
+    content: "";
+    position: absolute;
+    width: 45%;
+    right: 0;
+    top: 54%;
+    margin-right: -20px;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    height: 2px;
+    background-color: #929699;
+}
+
+.input-group-text.login_input_addon {
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #E0E3E5;
+    height: 50px;
+}
+
+.form-control.login_input_field {
+    background-color: transparent;
+    border: 1px solid #E0E3E5;
+    color: #929699;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: "Roboto";
+}
+
+.form-control.login_input_field:focus {
+    box-shadow: none;
+}
+
+.show_pass {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    color: #929699;
+    padding: 5px;
+    z-index: 999;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.key_rotate {
+    transform: rotateX(180deg);
+    -webkit-transform: rotateX(180deg);
+    -moz-transform: rotateX(180deg);
+    -ms-transform: rotateX(180deg);
+    -o-transform: rotateX(180deg);
+}
+
+
+/* The container */
+
+.custom_checkbox {
+    display: inline-block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    text-align: left;
+    color: #929299;
+}
+
+.custom_checkbox span.ckeckbox_name {
+    font-family: "Roboto";
+    font-size: 14px;
+    display: inline-block;
+}
+
+
+/* Hide the browser's default checkbox */
+
+.custom_checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+
+/* Create a custom checkbox */
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: transparent;
+    border: 1px solid #929299;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+}
+
+
+/* On mouse-over, add a grey background color */
+
+.custom_checkbox:hover input~.checkmark {
+    background-color: transparent;
+    border: 1px solid #929299;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+}
+
+
+/* When the checkbox is checked, add a blue background */
+
+.custom_checkbox input:checked~.checkmark {
+    background-color: transparent;
+}
+
+
+/* Create the checkmark/indicator (hidden when not checked) */
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+
+/* Show the checkmark when checked */
+
+.custom_checkbox input:checked~.checkmark:after {
+    display: block;
+}
+
+
+/* Style the checkmark/indicator */
+
+.custom_checkbox .checkmark:after {
+    left: 7px;
+    top: 3px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.btn-orange {
+    background-color: #F2652D;
+    color: #fff;
+    transition: all .2s;
+    -webkit-transition: all .2s;
+    -moz-transition: all .2s;
+    -ms-transition: all .2s;
+    -o-transition: all .2s;
+    font-family: "Roboto";
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.btn-orange:hover {
+    background-color: rgb(196, 79, 33);
+    color: #fff;
+}
+
+.register_link {
+    color: #BEBEBE;
+    font-family: "Avenir-Roman";
+    font-size: 18px;
+    margin-top: 15px;
+}
+
+
+/* responsive styling for login from */
+
+@media (min-width:992px) and (max-width:1445px) {
+    .form_heading {
+        font-size: 30px;
+    }
+    .form_desc {
+        font-size: 14px;
+    }
+    .facebook_login_btn i.facebook__padding {
+        padding: 11px 18px;
+    }
+    .facebook_login_btn span {
+        padding: 10px 0px;
+        font-size: 12px;
+    }
+    .facebook_login_btn i {
+        padding: 11px 16px;
+    }
+    .for_or {
+        margin: 10px auto;
+    }
+    .input-group-text.login_input_addon {
+        height: 38px;
+    }
+    .btn-orange {
+        font-size: 16px;
+    }
+    .register_link {
+        font-size: 14px;
+    }
+}
+
+@media (min-width:992px) and (max-width:1100px) {
+    .facebook_login_btn span {
+        padding: 11px 0px;
+        font-size: 10px;
+    }
+}
+
+.left_section {
+    position: relative;
+}
+
+@media (max-width:991px) {
+    .left_section {
+        display: none;
+    }
+    .overlay {
+        background: none;
+    }
+}
+
+.logo_container {
+    position: absolute;
+    top: 55%;
+    left: 10%;
+}
+
+.logo_desc {
+    font-family: "Avenir-book";
+    font-size: 32px;
+    color: #fff;
+    line-height: 1;
+    width: 80%;
+    margin-top: 20px;
+}
+
+.left_logo_img {
+    width: 60%;
+}
+
+select.form-control.login_input_field option {
+    background-color: #000d;
+    color: #929299;
+    padding-top: 10px;
+}
+
+select.form-control.login_input_field:not([size]):not([multiple]) {
+    height: auto;
+}

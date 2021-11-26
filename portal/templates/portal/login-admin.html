@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+
+    <!--FAVICONS -->
+    <link rel="apple-touch-icon" sizes="57x57" href="{% static 'rekognition/assets/img/apple-icon-57x57.png' type='image/x-icon' %}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{% static 'rekognition/assets/img/favicon-96x96.png' type='image/x-icon' %}">
+
+    <!-- Bootstrap CSS Files version 4 -->
+    <link rel="stylesheet" href="{% static 'rekognition/assets/css/bootstrap.min.css' %}">
+
+    <!-- Google Fonts -->
+    <link href="{% static 'rekognition/assets/font-awesome-4.7.0/css/font-awesome.min.css' %}" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'rekognition/assets/css/style.css' %}">
+</head>
+
+<body>
+    <div class="container-fluid mglr-0">
+        
+        <div class="login_form_section">
+            <div class="login_options col-sm-5">
+                <form method="post" action="{% url 'admin_login' %}">
+                    {% if messages %}
+                        <div class="messages text-center">
+                        {% for message in messages %}
+                            {% if message.tags in 'error' %}
+                                <div class="alert alert-danger">{{ message }}</div>
+                            {% elif message.tags in 'success' %}
+                                <div class="alert alert-success">{{ message }}.</div>
+                            {% else %}
+                                <div class="alert alert-warning">{{ message }}</div>
+                            {% endif %}
+                        {% endfor %}
+                        </div>
+                    {% endif %}
+                    {% csrf_token %}
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text login_input_addon"><i class="fa fa-envelope"></i></span>
+                        </div>
+                        <input type="text" class="form-control login_input_field" placeholder="username" name="username">
+                    </div>
+
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text login_input_addon"><i class="fa fa-key key_rotate"></i></span>
+                        </div>
+                        <input type="password" class="form-control login_input_field" placeholder="Password" name="password">
+
+                        <i class="fa fa-eye show_pass"></i>
+                    </div>
+
+                    <button type="submit" class="btn btn-block btn-orange">LOGIN</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<!-- Jquery Js  version: 3.3.1-->
+<script src="{% static 'rekognition/assets/js/jquery.min.js' %}"></script>
+
+<!-- Bootstrap Js -->
+<script src="{% static 'rekognition/assets/js/bootstrap.min.js' %}"></script>
+
+<!-- Custom JS -->
+<script src="{% static 'rekognition/assets/js/main.js' %}"></script>
+
+</html>

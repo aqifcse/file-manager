@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>File Dashboard</title>
+    <!-- Custom fonts for this template-->
+    <link href="{% static 'portal/assets/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.materialdesignicons.com/5.3.45/css/materialdesignicons.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <!-- Custom styles for this template-->
+    <link href="{% static 'portal/assets/css/sb-admin-2.css' %}" rel="stylesheet">
+</head>
+<div class="loader"></div>
+
+<body id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar">
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center " href="">
+                <div class="sidebar-brand-text mx-3">File Platform</div>
+            </a>
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'portal:home' %}">
+                    <i class="mdi mdi-view-dashboard" aria-hidden="true"></i>
+                    <span>Dashboard</span></a>
+            </li>
+            <!-- Heading -->
+            <!-- Nav Item - Utilities Collapse Menu -->
+            <li class="nav-item">
+                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="pt-0 pb-0 collapse-inner rounded">
+                        <a class="collapse-item" href="{% url 'portal:file-upload' %}">File Upload</a>
+                    </div>
+                    <div class="pt-0 pb-0 collapse-inner rounded">
+                        <a class="collapse-item" href="{% url 'portal:file-list' %}">File List</a>
+                    </div>
+
+                </div>
+            </li>
+            <!-- Nav Item - Tables -->
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+        </ul>
+        <!-- End of Sidebar -->
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+            <!-- Main Content -->
+            <!-- Topbar -->
+            <nav class="navbar navbar-expand navbar-light bg-transparent topbar static-top">
+                <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <!-- Topbar Search -->
+                <!-- Topbar Navbar -->
+                <ul class="navbar-nav">
+                    <li>
+                        <h4 class="mt-3">File Manager Portal</h4>
+                    </li>
+                </ul>
+                           
+            {% block content %}{% endblock %}
+            <footer class="footer">
+                <div class="container">
+                </div>
+            </footer>
+            <!--End footer-->
+            <!-- End of Footer -->
+        </div>
+        <!-- End of Content Wrapper -->
+    </div>
+    <!-- End of Page Wrapper -->
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+    <!-- Logout Modal-->
+    
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<!-- Bootstrap core JavaScript-->
+<script src="{% static 'portal/assets/vendor/jquery/jquery.min.js' %}"></script>
+<!-- Core plugin JavaScript-->
+<script src="{% static 'portal/assets/vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+<!-- Custom scripts for all pages-->
+<script src="{% static 'portal/assets/js/sb-admin-2.js' %}"></script>
+<script src="{% static 'portal/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+{% block script%}
+<!-- Page level plugins -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" rel="stylesheet" type="text/css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+{% endblock %}

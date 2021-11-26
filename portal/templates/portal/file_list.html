@@ -1,0 +1,300 @@
+{% extends "portal/app_developer_base.html" %}
+{% block content %}
+<!-- Begin Page Content -->
+{% if success_message %}
+    <div class="alert alert-success">
+        {{ success_message }}
+    </div>
+{% endif %}
+<div class="container-fluid dashboard_item">
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    </div>
+    <!-- Content Row -->
+    <div class="row">
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-xl-12 col-md-12 mb-12 mb-3">
+            <div class="card h-100 py-2 dashboard_header">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-primary">
+                                <h1 class="h3 mb-0 text-gray-800">App List</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Content Row -->
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card col-xl-12 col-md-12 col-sm-12 shadow mb-4 dashboard_item_shadow br-10">
+                <!-- Card Body -->
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover teble-responsive agency_list_table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">App Entry ID</th>
+                                    <th scope="col">App Name</th>
+                                    <th scope="col">No. Downloads</th>
+                                    <th scope="col">Author</th>
+                                    <th scope="col">Description</th>
+                                    <th scope="col">Version Code</th>
+                                    <th scope="col">Version Name</th>
+                                    <th scope="col">Package Name</th>
+                                    <th scope="col">Published Date</th>
+                                    <th scope="col">Download</th>
+                                    <th scope="col">Make <br> Active/Inactive</th>
+                                    <th scope="col">Delete</th>
+                                </tr>
+
+                            </thead>
+                            <tbody>
+                                {% for obj in apps %}
+                                <tr>
+                                    <td class="app_name">{{ obj.id }}</td>
+                                    <td class="fixed_td_width"><a
+                                            href="{% url 'portal:app-developer-app-details' obj.id %}">{{ obj.app.app_name }}</a>
+                                    </td>
+                                    <td class="count_number">{{ obj.downloads }}</td>
+                                    <td>{{ obj.app.author.user.username }}</td>
+                                    <td class="fixed_td_width">{{ obj.app_short_description }}</td>
+                                    <td>{{ obj.app_version_code }}</td>
+                                    <td class="fixed_td_width">{{ obj.app_version_name }}</td>
+                                    <td class="fixed_td_width">{{ obj.app_package_name }}</td>
+                                    <td>{{ obj.pub_date | date:"d M Y" }}</td>
+                                    <td><a href="{{ obj.app_file.url }}" download
+                                            class="btn btn-primary float-center counter download_btn">
+                                            <i class="fa fa-download"></i>
+                                        </a>
+                                    </td>
+
+                                    {% if obj.is_active %}
+                                    <td>
+                                        <button class="btn btn-dark active_status inactive_btn"
+                                            value="False">Deactivate</button>
+                                    </td>
+                                    {% else%}
+                                    <td>
+                                        <button class="btn btn-dark active_status active_btn"
+                                            value="True">Activate</button>
+                                    </td>
+                                    {% endif %}
+
+                                    <td>
+                                        <button class="btn btn-danger remove_data" data-toggle="modal"
+                                            data-target="#removeDataModal">
+                                            <i class="fa fa-times"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    {% if is_paginated %}
+                        {% if page_obj.has_previous %}
+                            <a class="btn btn-outline-info mb-4" href="?page=1 {% if q %} &q={{ q }} {% endif %}">First</a>
+                            <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.previous_page_number }}{% if q %} &q={{ q }} {% endif %}">Previous</a>
+                        {% endif %}
+
+                        {% for num in page_obj.paginator.page_range %}
+                            {% if page_obj.number == num %}
+                                <a class="btn btn-info mb-4" href="?page={{ num }}{% if q %} &q={{ q }} {% endif %}">{{ num }}</a>
+                            {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                                <a class="btn btn-outline-info mb-4" href="?&page={{ num }}{% if q %} &q={{ q }} {% endif %}">{{ num }}</a>
+                            {% endif %}
+                        {% endfor %}
+
+                        {% if page_obj.has_next %}
+                            <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.next_page_number }}{% if q %} &q={{ q }} {% endif %}">Next</a>
+                            <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.paginator.num_pages }}{% if q %} &q={{ q }} {% endif %}">Last</a>
+                        {% endif %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- delete table row modal  -->
+<!-- Logout Modal-->
+<div class="modal fade" id="removeDataModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Are you sure you want to <b class="text-danger">delete
+                        this data</b>?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>By selecting "Yes" Your data will be removed permanently. <br> You can go back to
+                    previous state by clicking "No"</p>
+
+            </div>
+            <div class="modal-footer">
+                <form class="tagForm" method="DELETE" action="">
+                    {% csrf_token %}
+                    <button class="btn btn-primary" onclick="reload()" type="button" data-dismiss="modal">No</button>
+                    <a class="btn btn-danger delete_data_permanently" href="#">Yes</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- delete table row modal  -->
+<!-- End container-fluid-->
+{% endblock %}
+{% block script %}
+<script type="text/javascript">
+    function reload(){
+        location.reload()
+    }
+    // remove data
+    var app_name;
+    var domain = document.location.origin;
+    // using jQuery
+    function getCookie(name) {
+        var cookieValue = null;
+        if (document.cookie && document.cookie != '') {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = jQuery.trim(cookies[i]);
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+
+    var csrftoken = getCookie('csrftoken');
+
+    $(".remove_data").click(function () {
+
+        app_name = $(this).closest('td').siblings('td.app_name').text();
+        console.log(app_name);
+        // get table data
+        var that = $(this).closest("tr");
+        console.log(that)
+        // on click remove data
+        $(".delete_data_permanently").click(function () {
+            // yes click remove data
+            console.log(app_name);
+            var url = domain + "/app-delete-api/delete/";
+            console.log(url);
+            $.ajax({
+                url: url,
+                dataType: 'json',
+                type: 'POST',
+                contentType: 'application/x-www-form-urlencoded',
+                headers: {
+                    "X-CSRFToken": csrftoken
+                },
+                data: {
+                    app_name: app_name,
+                    csrfmiddlewaretoken: csrftoken,
+                },
+                beforeSend: function () { },
+                success: function (data) {
+                    // console.log(data);
+                    that.remove();
+                    $('#removeDataModal').modal('hide');
+                    reload()
+                },
+                error: function (jqXhr, textStatus, errorThrown) {
+
+                }
+            });
+        })
+    });
+
+    $(".active_status").click(function () {
+        console.log("clicked");
+        var that = $(this);
+        app_name = $(this).closest('td').siblings('td.app_name').text();
+        console.log(app_name);
+        var url = domain + "/app-update-api/" + app_name + "/update/";
+        console.log(url);
+        var activeStatus = $(this).val();
+        console.log(activeStatus);
+        if (activeStatus == "False") {
+            $.ajax({
+                url: url,
+                dataType: 'json',
+                type: 'PUT',
+                contentType: 'application/x-www-form-urlencoded',
+                headers: {
+                    "X-CSRFToken": csrftoken
+                },
+                data: {
+                    is_active: "False",
+                    csrfmiddlewaretoken: csrftoken,
+                },
+                beforeSend: function () { },
+                success: function (data) {
+                    // console.log(data);
+                    that.addClass("active_btn");
+                    that.removeClass("inactive_btn");
+                    that.text("Activate");
+                    that.val("True")
+                },
+                error: function (jqXhr, textStatus, errorThrown) {
+
+                }
+            });
+        } else if (activeStatus == "True") {
+            $.ajax({
+                url: url,
+                dataType: 'json',
+                type: 'PUT',
+                contentType: 'application/x-www-form-urlencoded',
+                headers: {
+                    "X-CSRFToken": csrftoken
+                },
+                data: {
+                    is_active: "True",
+                    csrfmiddlewaretoken: csrftoken,
+                },
+                beforeSend: function () { },
+                success: function (data) {
+                    // console.log(data);
+                    that.addClass("inactive_btn");
+                    that.removeClass("active_btn");
+                    that.text("Deactivate");
+                    that.val("False")
+                },
+                error: function (jqXhr, textStatus, errorThrown) {
+
+                }
+            });
+        }
+    });
+
+    $(".counter").click(function () {
+        var count_div = $(this).closest('tr').find('.count_number');
+        var count_number = parseInt($(this).closest('tr').find('.count_number').text());
+        var id = $(this).closest('td').siblings('td.app_name').text();
+        
+        $.ajax({
+            type: "GET",
+            url: domain + "/downloadcount/" + id + "/",
+            datatype: "html",
+            data: $("downloads").serialize(),
+            success: function (data) {
+                var count_updated_number = count_number + 1;
+                $(count_div).text(count_updated_number)
+            }
+        });
+    });
+
+</script>
+{% endblock %}

@@ -1,0 +1,392 @@
+@import url('bootstrap.min.css');
+@import url('simplebar.css');
+@import url('../font-awesome-4.7.0/css/font-awesome.min.css');
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,500,700");
+
+/* @import url('slick.min.css');
+@import url('slick-theme.css'); */
+
+@import url('animate.css');
+@import url('sidebar-menu.css');
+@import url('app-style.css');
+.content_area {
+    border-radius: 1px;
+    padding: 2% 30px 5%;
+    background: #fff;
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, .5);
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    -ms-border-radius: 1px;
+    -o-border-radius: 1px;
+}
+
+.mg-btm-15 {
+    margin-bottom: 15px;
+}
+
+.content_area-title {
+    text-align: left;
+    font-size: 24px;
+    color: #1e1e1e;
+    display: inline-block;
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.btn_edit,
+.btn_submit_common {
+    color: #fff;
+    background: #2F2F2F;
+    float: right;
+    padding: 7px 16px;
+    transition: all .3s ease;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+}
+
+.btn_edit:hover,
+.btn_submit_common:hover {
+    color: #fff;
+    text-decoration: none;
+    background: #3f3f3f;
+}
+
+.form_container {
+    padding: 3% 0px;
+}
+
+ul.dropdown-menu.dropdown-menu-right.animated.fadeIn.show {
+    min-width: 245px;
+}
+
+ul.dropdown-menu.dropdown-menu-right.animated.fadeIn.show li {
+    cursor: pointer;
+}
+
+table.dataTable thead>tr>th.sorting_asc,
+table.dataTable thead>tr>th.sorting_desc,
+table.dataTable thead>tr>th.sorting,
+table.dataTable thead>tr>td.sorting_asc,
+table.dataTable thead>tr>td.sorting_desc,
+table.dataTable thead>tr>td.sorting {
+    padding-right: 5px;
+    white-space: normal !important;
+}
+
+table.dataTable.nowrap th,
+table.dataTable.nowrap td {
+    white-space: normal !important;
+}
+
+.alert.custom_alert {
+    text-align: center;
+    overflow: hidden;
+}
+
+.bg-card-back {
+    background: #1a262b !important;
+    color: #fff;
+    padding: 5px 17px;
+}
+
+a.back_btn {
+    color: #fff;
+    border: 2px solid #3b8490;
+    display: inline-block;
+    width: fit-content;
+    padding: 5px 25px;
+    border-radius: 5px;
+    transition: all .2s ease;
+    -webkit-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+    -ms-transition: all .2s ease;
+    -o-transition: all .2s ease;
+}
+
+a.back_btn:hover {
+    color: #fff;
+    border: 2px solid #3b8490;
+    background: #3b8490;
+    padding: 5px 25px;
+    border-radius: 5px;
+}
+
+a.back_btn span {
+    margin-left: 10px;
+}
+
+.form__radio--group {
+    width: auto;
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.form__radio--label {
+    font-size: 13px;
+    cursor: pointer;
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 0px;
+    padding-top: 6px;
+}
+
+.form__radio--input {
+    display: none;
+}
+
+.form__radio--button {
+    height: 22px;
+    width: 22px;
+    border: 3px solid #e0646a;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: 5px;
+}
+
+.form__radio--button::after {
+    content: "";
+    display: block;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #e0646a;
+    opacity: 0;
+    transition: opacity .2s;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+}
+
+.form__radio--input:checked~.form__radio--label .form__radio--button::after {
+    opacity: 1;
+}
+
+.show_hide {
+    display: none;
+}
+
+.secondary_heading {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 22px;
+}
+
+label {
+    text-transform: none !important;
+}
+
+label.col-form-label {
+    text-transform: none;
+}
+
+.form__checkbox--group {
+    width: auto;
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.form__checkbox--label {
+    font-size: 13px;
+    cursor: pointer;
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 0px;
+}
+
+.form__checkbox--input {
+    display: none;
+}
+
+.form__checkbox--button {
+    height: 16px;
+    width: 16px;
+    border: 2px solid #e0646a;
+    border-radius: 3px;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: 2px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+}
+
+.form__checkbox--button::after {
+    content: "\F00C";
+    font-family: FontAwesome;
+    font-size: 10px;
+    display: block;
+    color: #e0646a;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity .2s;
+}
+
+.form__checkbox--input:checked~.form__checkbox--label .form__checkbox--button::after {
+    opacity: 1;
+}
+
+input#rating1 {
+    display: none;
+}
+
+.form__checkbox--input:checked~input#rating1 {
+    display: block;
+}
+
+@media (max-width:991.98px) {
+    .multiple_in_row div {
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width:767.98px) {
+    .col-form-label {
+        justify-content: flex-start;
+    }
+    .form_container {
+        margin-left: auto;
+    }
+}
+
+.details_logo {
+    margin: 0px auto;
+    display: block;
+    margin-bottom: 15px;
+    width: 30%;
+}
+
+.details_title {
+    color: #e0646a;
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 0px;
+}
+
+.details_desc {
+    color: #000;
+    font-size: 16px;
+}
+
+.actor_actress_info {
+    display: inline-block;
+}
+
+.actor_actress_info img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    margin-left: 10px;
+}
+
+.actor_actress_name {
+    padding-right: 10px;
+    border-right: 1px solid;
+}
+
+.show_hide2 {
+    display: none;
+}
+
+.content_area .form-control {
+    border-radius: 5px;
+    border: 1px solid #252525;
+    color: #1b1b1b;
+    font-size: 13px;
+}
+
+.content_area .form-control:focus {
+    box-shadow: 0 0 0 0.2rem rgba(172, 172, 172, 0.25);
+}
+
+.content_area .form-check-label {
+    margin-bottom: 0;
+    font-size: 13px;
+    color: #222;
+    font-weight: 600;
+}
+
+label.input-group-text {
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid #252525;
+    border-left: none;
+}
+
+select option {
+    background: #f7f7f7;
+    color: #1e1e1e;
+    padding: 7px 15px !important;
+}
+
+::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #1b1b1b;
+    opacity: 1;
+    /* Firefox */
+}
+
+:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: red;
+}
+
+::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: red;
+}
+
+.btn-dangered {
+    color: #fff;
+    background-color: #909090;
+    border-color: #909090;
+}
+
+.btn-successed {
+    color: #fff;
+    background-color: #606061;
+    border-color: #606060;
+}
+
+.btn.btn_submit_common.disabled,
+.btn.btn_submit_common:disabled {
+    opacity: 1;
+    background: #A1A1A1;
+}
+li{
+    list-style: none;
+}
+.scroll{
+    max-height:100px;
+    overflow-y:scroll;
+}
+.tr-pr-0{
+    padding-right:0px!important
+}

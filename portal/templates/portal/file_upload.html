@@ -1,0 +1,79 @@
+{% extends "portal/base.html" %}
+
+{% block search %}{% endblock %}
+
+{% load crispy_forms_filters %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="container-fluid dashboard_item">
+    <!-- {# {% if aul_form.errors %}
+        {% for field in aul_form %}
+            {% for error in field.errors %}
+                <div class="alert alert-danger">
+                    <strong>{{ error|escape }}</strong>
+                </div>
+            {% endfor %}
+        {% endfor %}
+        {% for error in aul_form.non_field_errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+    {% endif %} #} -->
+    {% for m in messages %}
+        {% if "apk_ext" in m.tags %} <div class="alert alert-danger"><strong> {{ m }} </strong></div> {% endif %}
+        {% if "logo_empty" in m.tags %} <div class="alert alert-danger"><strong> {{ m }} </strong></div> {% endif %}
+        {% if "logo_ext" in m.tags %} <div class="alert alert-danger"><strong> {{ m }} </strong></div> {% endif %} 
+        {% if "app_name_exist" in m.tags %} <div class="alert alert-danger"><strong> {{ m }} </strong></div> {% endif %}
+        {% if "package_name_exist" in m.tags %} <div class="alert alert-danger"><strong> {{ m }} </strong></div> {% endif %}
+        {% if "form_invalid" in m.tags %} <div class="alert alert-danger"><strong> {{ m }} </strong></div> {% endif %}
+        {% if "form_crashed" in m.tags %} <div class="alert alert-danger"><strong> {{ m }} </strong></div> {% endif %}
+    {% endfor %}
+    <div class="d-sm-flex align-items-center justify-content-between mb-4"></div>
+    <div class="row">
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-xl-12 col-md-12 mb-12 mb-3">
+            <div class="card h-100 py-2 dashboard_header">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-primary">
+                                <h1 class="h3 mb-0 text-gray-800">File Upload Form</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card shadow mb-4 dashboard_item_shadow br-10">
+                <!-- Card Body -->
+                <div class="card-body">
+                    <form method="POST" id='app_upload' enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <fieldset class="form-group">
+                            {{ aul_form | crispy }}
+                            <div id='form-errors'>{{ form_errors }}</div>
+                        </fieldset>
+                        <div class="form-group">
+                            <button class="btn btn-outline-info" type="submit">Upload</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+{% block script%}
+<script>
+    $("#app_upload").on("submit", function () {
+        $(".loader").fadeIn();
+    });//submit
+</script>
+{% endblock %}
